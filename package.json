@@ -4,7 +4,6 @@
   "description": "[![Build Status](https://travis-ci.org/anishkny/node-express-realworld-example-app.svg?branch=master)](https://travis-ci.org/anishkny/node-express-realworld-example-app)",
   "main": "index.js",
   "scripts": {
-    "build": "nest build",
     "start": "node index.js",
     "dev": "nodemon",
     "prestart:prod": "tsc",
