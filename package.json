@@ -4,10 +4,10 @@
   "description": "[![Build Status](https://travis-ci.org/anishkny/node-express-realworld-example-app.svg?branch=master)](https://travis-ci.org/anishkny/node-express-realworld-example-app)",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon",
+    "start": "NODE_ENV=production node index.js ",
+    "dev": "NODE_ENV=local nodemon",
     "prestart:prod": "tsc",
-    "start:prod": "node dist/main.js",
+    "start:prod": "NODE_ENV=production node dist/main.js",
     "test": "jest --config=jest.json",
     "test:watch": "jest --watch --config=jest.json",
     "test:coverage": "jest --config=jest.json --coverage --coverageDirectory=coverage"
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/lujakob/nestjs-realworld-example-app#readme",
   "dependencies": {
     "@nestjs/common": "^7.0.5",
+    "@nestjs/config": "^3.2.2",
     "@nestjs/core": "^7.0.5",
     "@nestjs/microservices": "^7.0.5",
     "@nestjs/platform-express": "^7.0.5",
@@ -36,6 +37,8 @@
     "class-validator": "^0.11.1",
     "crypto": "^1.0.1",
     "crypto-js": "^4.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "passport-jwt": "^4.0.0",

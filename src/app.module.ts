@@ -1,4 +1,6 @@
 import { Module } from "@nestjs/common";
+// import { ConfigModule } from "@nestjs/config";
+
 import { AppController } from "./app.controller";
 import { ArticleModule } from "./article/article.module";
 import { UserModule } from "./user/user.module";
@@ -16,9 +18,10 @@ import { TagModule } from "./tag/tag.module";
       username: "postgres",
       password: "123456",
       database: "nestjsrealworld",
-      entities: ["dist/**/*.entity.js"],
+      entities: ["src/**/*.entity.ts"],
       synchronize: true,
     }),
+    // ConfigModule.forRoot(),
     ArticleModule,
     UserModule,
     ProfileModule,
