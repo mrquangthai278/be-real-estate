@@ -3,20 +3,31 @@ import { ApplicationModule } from "./app.module";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 
 async function bootstrap() {
+  // Nest options
   const appOptions = { cors: true };
-  const app = await NestFactory.create(ApplicationModule, appOptions);
-  app.setGlobalPrefix("api");
 
+  // Nest installation
+  const app = await NestFactory.create(ApplicationModule, appOptions);
+  app.setGlobalPrefix(process.env.NODE_APP_BASE_PATH || "api");
+
+  // Swagger options
   const options = new DocumentBuilder()
-    .setTitle("NestJS Realworld Example App")
-    .setDescription("The Realworld API description")
-    .setVersion("1.0")
-    .setBasePath("api")
+    .setTitle(process.env.NODE_APP_TITLE)
+    .setDescription(process.env.NODE_APP_DESCRIPTION)
+    .setVersion(process.env.NODE_APP_VERSION)
+    .setBasePath(process.env.NODE_APP_BASE_PATH || "api")
     .addBearerAuth()
     .build();
-  const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup("/docs", app, document);
 
-  await app.listen(8080);
+  // Swagger installation
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup(
+    process.env.NODE_APP_DOCUMENTS_PATH || "/docs",
+    app,
+    document
+  );
+
+  await app.listen(process.env.NODE_APP_PORT || "8080");
 }
+
 bootstrap();
