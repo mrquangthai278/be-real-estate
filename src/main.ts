@@ -9,7 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
   const config: AppService = app.get(AppService);
 
-  const port = 3000;
+  const port = 80;
 
   const options = new DocumentBuilder()
     .setTitle('Example API Docs')
