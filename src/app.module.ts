@@ -11,8 +11,8 @@ import { AppService } from './app.service';
 import { Product } from './products/entities/product.entity';
 import { ProductsModule } from './products/products.module';
 
-const env = process.env.NODE_ENV === 'production' ? envProd : envLocal;
-
+// const env = process.env.NODE_ENV === 'production' ? envProd : envLocal;
+const env = envLocal;
 @Module({
   imports: [
     ConfigModule.forRoot({
