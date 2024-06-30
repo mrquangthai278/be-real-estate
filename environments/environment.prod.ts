@@ -1,19 +1,19 @@
 export default () => ({
-  production: false,
+  production: true,
 
   server: {
-    host: '0.0.0.0',
-    domainUrl: 'http://localhost:3000',
-    port: 3000,
+    host: process.env.HOST,
+    domainUrl: process.env.DOMAIN_URL,
+    port: Number(process.env.PORT),
   },
 
   database: {
-    type: 'postgres',
-    host: 'database-testing.ctsaa8mwmacr.us-east-2.rds.amazonaws.com',
-    port: 5432,
-    database: 'postgres',
-    username: 'postgres',
-    password: 'nhoxthai1996',
+    type: process.env.TYPEORM_TYPE,
+    host: process.env.TYPEORM_HOST,
+    port: Number(process.env.TYPEORM_PORT),
+    database: process.env.TYPEORM_DATABASE,
+    username: process.env.TYPEORM_USERNAME,
+    password: process.env.TYPEORM_PASSWORD,
     keepConnectionAlive: true,
     logging: false,
     synchronize: true,
