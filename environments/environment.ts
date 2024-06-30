@@ -9,11 +9,11 @@ export default () => ({
 
   database: {
     type: 'postgres',
-    host: 'ep-super-meadow-a1xpgt2g-pooler.ap-southeast-1.aws.neon.tech',
+    host: 'database-testing.ctsaa8mwmacr.us-east-2.rds.amazonaws.com',
     port: 5432,
-    database: 'verceldb',
-    username: 'default',
-    password: 'MPshJfk7DIX6',
+    database: 'postgres',
+    username: 'postgres',
+    password: 'nhoxthai1996',
     keepConnectionAlive: true,
     logging: false,
     synchronize: true,
